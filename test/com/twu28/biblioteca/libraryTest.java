@@ -1,6 +1,6 @@
 /**
  * Created with IntelliJ IDEA.
- * User: Bhanu
+ * User: Akriti
  * Date: 20/9/12
  * Time: 1:27 AM
  * To change this template use File | Settings | File Templates.
@@ -11,7 +11,7 @@ import org.junit.Assert;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Bhanu
+ * User: Akriti
  * Date: 20/9/12
  * Time: 1:07 AM
  * To change this template use File | Settings | File Templates.
