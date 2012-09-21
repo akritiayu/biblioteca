@@ -1,4 +1,4 @@
-
+package com.twu28.biblioteca;
 import java.lang.*;
 
 /**
@@ -9,29 +9,34 @@ import java.lang.*;
  * Time: 10:37 PM
  * To change this template use File | Settings | File Templates.
  */
-public class book {
+public class Book {
     public static int choice;
     public int id[];
     public static String[] book_name=new String[] {"Head First Java","Complete reference Java","The Agile Samurai"};
     public static String[] author=new String[]{"Kathy Sierra","Herbert Schildt","xustah"};
     public static int[] numberofbooks={6,0,6};
     public static int i;
-    public static library lib2=new library();
+    public static Library lib2=new Library();
 
+    public Book(int choice)
+    {
+    displaybook(choice);
+    Library.enterurchoice();
+    selectbook();
+
+    }
 
     public static boolean displaybook(int ch)
     {
-        if (ch==1)
-        {
         System.out.println("Book ID\t\t\t\tBook Name\t\t\t\t\tAuthor");
         for(i=0;i<book_name.length;i++)
         {
             System.out.print("100"+(i+1)+"\t\t\t"+book_name[i]+"\t\t\t"+author[i]+"\n");
         }
-        System.out.println("Enter the book id of ur choice");
+        System.out.println("Enter the Book id of ur choice");
+
         return true;
-        }
-        return false;
+
     }
 
     public static void selectbook()
@@ -46,10 +51,8 @@ public class book {
              break;
           default:
             {
-                System.out.println("Select a valid book Id");
-                displaybook(1);
-                lib2.enterurchoice();
-                selectbook();
+                System.out.println("Select a valid Book Id");
+                new Book(2);
             }
         }
     }
@@ -65,12 +68,12 @@ public class book {
         }
         if (indiactor==true)
         {
-            System.out.println("Thank You! Enjoy the book");
+            System.out.println("Thank You! Enjoy the Book");
 
         }
         else
         {
-            System.out.println("Sorry we don't have that book yet");
+            System.out.println("Sorry we don't have that Book yet");
         }
          return true;
     }

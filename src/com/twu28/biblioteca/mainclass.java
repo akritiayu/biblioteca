@@ -1,10 +1,12 @@
 
+package com.twu28.biblioteca;
 
-public class mainclass {
+public class Mainclass {
     public static void main(String args[])
     {
-        library lib=new library();
-        lib.welcome();
+        System.out.println("\t\t\tWELCOME");
+        Library lib=new Library();
+        lib.display_welcome_menu();
 
     }
 }

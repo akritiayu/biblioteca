@@ -1,4 +1,4 @@
-
+package com.twu28.biblioteca;
 import java.util.Scanner;
 
 /**
@@ -12,52 +12,64 @@ import java.util.Scanner;
 
 
 
-public class library {
+public class Library {
 
-    public static book b1=new book();
-    public static int i,choice;
+   public static int i,choice;
 
 
-    public static void welcome()
+
+    public static void display_welcome_menu()
     {
-        System.out.println("\t\t\tWELCOME");
         System.out.println("Menu Option");
-        System.out.println("1. Book gallery");
-        System.out.println("2. Check Details");
-        System.out.println("3. Exit");
+        if (Login.flag_indicator_of_userlogin==1)
+        System.out.println("1. Login As Different User");
+        else
+        System.out.println("1. Login");
+        System.out.println("2. Book Gllery");
+        System.out.println("3. Movie Gallery");
+        System.out.println("4. Check Details");
+        System.out.println("5. Exit");
+        if(Login.flag_indicator_of_userlogin==1)
+        System.out.println("6. Logout");
         System.out.print("Enter ur Choice (number)");
         enterurchoice();
         selectmenu();
     }
 
-    public static void enterurchoice()
-    {
-        Scanner scan = new Scanner(System.in);
-        choice = scan.nextInt();
-    }
 
 
     public static void selectmenu()
     {
 
        boolean result;
+       String result1;
        switch (choice)
         {
             case 1:
-                result=b1.displaybook(choice);
-                enterurchoice();
-                b1.selectbook();
+                new Login(choice);
                 break;
             case 2:
-                result=details(choice);
-                break;
+               new  Book(choice);
+               break;
             case 3:
+                result1=Movie.movie_menu_display(choice);
+                break;
+            case 4:
+                result=UserDetails.details(choice);
+                break;
+            case 5:
                 System.exit(0);
                 break;
+            case 6:
+                 if(Login.flag_indicator_of_userlogin==1)
+                 {
+                     Login.logout();
+                     break;
+                 }
             default:
             {
                 System.out.println("Select a valid option!!");
-                welcome();
+                display_welcome_menu();
             }
 
 
@@ -66,10 +78,9 @@ public class library {
 
 
 
-    public static boolean details(int choice)
-    {
-        System.out.println("Please talk to Librarian. Thank you.");
-        return true;
+        public static void enterurchoice()
+        {
+            Scanner scan = new Scanner(System.in);
+            choice = scan.nextInt();
+        }
     }
-
-}

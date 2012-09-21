@@ -1,3 +1,12 @@
+package com.twu28.biblioteca;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import static com.twu28.biblioteca.Book.displaybook;
+import static com.twu28.biblioteca.Login.*;
+
+
 /**
  * Created with IntelliJ IDEA.
  * User: Akriti
@@ -5,9 +14,6 @@
  * Time: 1:27 AM
  * To change this template use File | Settings | File Templates.
  */
-
-import org.junit.Test;
-import org.junit.Assert;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,28 +24,41 @@ import org.junit.Assert;
  */
 public class libraryTest {
 
-    @Test
-    public void when_user_enter_1_displaybook()
+    @Before
+    public void intialise()
     {
-        boolean expectedresult=true;
-        int choice=1;
-        Assert.assertEquals(expectedresult, book.displaybook(choice));
+      Login.user_id_input="111-1111";
+      Login.password_input="welcome1111";
+    }
+    @Test
+    public void when_user_enter1_displaylogin()
+    {
+      int choice=1;
+      boolean expected=true;
+      Assert.assertTrue(Login.check_validity_of_id_and_password(choice));
     }
 
     @Test
-    public void when_user_enter_2_displaydetails()
+    public void when_user_enter_2_displaybook()
     {
-        boolean expectedresult=true;
         int choice=2;
-        Assert.assertEquals(expectedresult, library.details(choice));
+        Assert.assertTrue(displaybook(choice));
     }
 
-     @Test
+   /** @Test
+    public void when_user_enter_4_displaydetails()
+    {
+        String expectedresult="Please talk to Librarian. Thank you.";
+        int choice=4;
+        Assert.assertEquals(expectedresult, Library.details(choice));
+    } **/
+
+    @Test
     public void user_selects_bookid_1001()
     {
         boolean expectedresult=true;
         int choice=1001;
-        Assert.assertEquals(expectedresult,book.checkbookavailabilty(choice));
+        Assert.assertEquals(expectedresult, Book.checkbookavailabilty(choice));
     }
 
     @Test
@@ -47,7 +66,7 @@ public class libraryTest {
     {
         boolean expectedresult=true;
         int choice=1002;
-        Assert.assertEquals(expectedresult,book.checkbookavailabilty(choice));
+        Assert.assertEquals(expectedresult, Book.checkbookavailabilty(choice));
     }
 
     @Test
@@ -55,8 +74,42 @@ public class libraryTest {
     {
         boolean expectedresult=true;
         int choice=1003;
-        Assert.assertEquals(expectedresult,book.checkbookavailabilty(choice));
+        Assert.assertEquals(expectedresult, Book.checkbookavailabilty(choice));
     }
 
-}
+    @Test
+    public void fifteen_movies_or_not()
+    {
+        int expected=15;
+        Assert.assertEquals(expected, Movie.movie_name.length);
+        Assert.assertEquals(expected, Movie.movie_director.length);
+        Assert.assertEquals(expected, Movie.movie_rating.length);
+        Assert.assertEquals(expected, Movie.movie_release_year.length);
+    }
 
+    @Test
+    public void number_of_userid_and_password_equal()
+    {
+        Assert.assertEquals(user_name.length, password.length);
+    }
+
+    @Test
+    public void number_of_userdetails_equalto_numberof_userid()
+    {
+        int expected= user_name.length;
+        Assert.assertEquals(expected, UserDetails.name.length);
+        Assert.assertEquals(expected, UserDetails.email_id.length);
+        Assert.assertEquals(expected, UserDetails.phone_number.length);
+
+    }
+
+    @Test
+    public void movielist_successfully_displayed()
+    {
+        String expected="Successfully Displayed";
+        int choice=3;
+        Assert.assertEquals(expected, Movie.movie_menu_display(choice));
+    }
+
+
+}
