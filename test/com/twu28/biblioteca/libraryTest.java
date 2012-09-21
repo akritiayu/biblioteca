@@ -12,7 +12,7 @@ import static com.twu28.biblioteca.Login.*;
  * Date: 20/9/12
  * Time: 1:27 AM
  * To change this template use File | Settings | File Templates.
- */
+**/
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,12 +23,6 @@ import static com.twu28.biblioteca.Login.*;
  */
 public class libraryTest {
 
-    @Before
-    public void intialise()
-    {
-      Login.user_id_input="111-1111";
-      Login.password_input="welcome1111";
-    }
     @Test
     public void when_user_enter1_displaylogin()
     {
@@ -43,14 +37,6 @@ public class libraryTest {
         int choice=2;
         Assert.assertTrue(displaybook(choice));
     }
-
-   /** @Test
-    public void when_user_enter_4_displaydetails()
-    {
-        String expectedresult="Please talk to Librarian. Thank you.";
-        int choice=4;
-        Assert.assertEquals(expectedresult, Library.details(choice));
-    } **/
 
     @Test
     public void user_selects_bookid_1001()
