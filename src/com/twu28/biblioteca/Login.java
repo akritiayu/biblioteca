@@ -13,7 +13,7 @@ public class Login {
     public static String password[]=new String[] {"welcome1111","welcome1112","welcome1113","welcome1114"};
     public static String user_id_input;
     public static String password_input;
-    public static int flag_indicator_of_userlogin;
+    public static int flag_indicator_of_userlogin=0;
 
     public Login(int choice)
     {
@@ -25,32 +25,33 @@ public class Login {
     public static void input_login_details()
     {
             flag_indicator_of_userlogin=0;
-            System.out.println("Enter ur User-ID:\t");
+            System.out.print("Enter ur User-ID:\t");
             Scanner scan = new Scanner(System.in);
             user_id_input =scan.next();
-            System.out.println("Enter ur Password:\t");
+            System.out.print("Enter ur Password:\t");
             scan =new Scanner(System.in);
             password_input =scan.nextLine();
     }
 
      public static boolean check_validity_of_id_and_password(int choice)
      {
-
       for (int i=0; i<user_name.length; i++)
-      {
+       {
           if(user_id_input.equals(user_name[i])&&password_input.equals(password[i]))
           {
            flag_indicator_of_userlogin=1;
            UserDetails.which_user_logged_in=i;
-           System.out.println("Welcome\t"+UserDetails.name[UserDetails.which_user_logged_in]+"\n");
-           System.out.println("Logged In As "+UserDetails.name[UserDetails.which_user_logged_in]);
-           }
+           System.out.println("Welcome\t"+UserDetails.name[UserDetails.which_user_logged_in]);
+           break;
+         }
 
       }
         if (flag_indicator_of_userlogin==0)
            System.out.println("User Name Or Password Is Incorrect");
          if (choice==1)
+         {
          return true;
+         }
          else
              return false;
      }

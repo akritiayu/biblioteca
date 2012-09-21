@@ -20,9 +20,8 @@ public class Book {
 
     public Book(int choice)
     {
-    displaybook(choice);
-    Library.enterurchoice();
-    selectbook();
+    boolean result=displaybook(choice);
+    display_choice_if_login();
 
     }
 
@@ -33,21 +32,61 @@ public class Book {
         {
             System.out.print("100"+(i+1)+"\t\t\t"+book_name[i]+"\t\t\t"+author[i]+"\n");
         }
-        System.out.println("Enter the Book id of ur choice");
-
         return true;
 
     }
 
-    public static void selectbook()
+    public static void display_choice_if_login()
+    {
+        if (Login.flag_indicator_of_userlogin==1)
+        {
+            System.out.println("Enter 1 to reserve a book");
+            System.out.println("Enter 2 to go back to Previous Menu");
+            choice=Library.enterurchoice();
+            reserve_a_book_or_go_to_previousmenu(choice);
+        }
+        else
+        {
+            System.out.println("You are not logged in. Login to reserve a book");
+            Library.display_welcome_menu();
+        }
+        //System.out.println("Enter 1 to login to reserve a book");
+        //System.out.println("Enter 2 to go back to Previous Menu");
+
+        //System.out.println("Enter the Book id of ur choice");
+    }
+
+    public static void reserve_a_book_or_go_to_previousmenu(int choice)
+    {
+        if(choice==1)
+        {
+            System.out.println("Enter the Book id of ur choice");
+            choice=Library.enterurchoice();
+            selectbook(choice);
+
+        }
+        else  if (choice==2)
+            Library.display_welcome_menu();
+        else
+
+        {
+            System.out.println("Enter Correct Input");
+            display_choice_if_login();
+        }
+
+
+    }
+
+    public static void selectbook(int choice)
     {
         boolean result;
-        switch(lib2.choice)
+        switch(choice)
         {
           case 1001:
           case 1002:
           case 1003:
-             result=checkbookavailabilty(lib2.choice);
+             result=checkbookavailabilty(choice);
+             Library.display_welcome_menu();
              break;
           default:
             {
@@ -69,7 +108,6 @@ public class Book {
         if (indiactor==true)
         {
             System.out.println("Thank You! Enjoy the Book");
-
         }
         else
         {

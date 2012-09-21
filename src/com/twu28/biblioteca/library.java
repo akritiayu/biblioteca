@@ -20,6 +20,8 @@ public class Library {
 
     public static void display_welcome_menu()
     {
+        if (Login.flag_indicator_of_userlogin==1)
+            System.out.println("Logged In As "+UserDetails.name[UserDetails.which_user_logged_in]);
         System.out.println("Menu Option");
         if (Login.flag_indicator_of_userlogin==1)
         System.out.println("1. Login As Different User");
@@ -32,13 +34,13 @@ public class Library {
         if(Login.flag_indicator_of_userlogin==1)
         System.out.println("6. Logout");
         System.out.print("Enter ur Choice (number)");
-        enterurchoice();
-        selectmenu();
+        int choice=enterurchoice();
+        selectmenu(choice);
     }
 
 
 
-    public static void selectmenu()
+    public static void selectmenu(int choice)
     {
 
        boolean result;
@@ -53,9 +55,11 @@ public class Library {
                break;
             case 3:
                 result1=Movie.movie_menu_display(choice);
+                display_welcome_menu();
                 break;
             case 4:
                 result=UserDetails.details(choice);
+                display_welcome_menu();
                 break;
             case 5:
                 System.exit(0);
@@ -78,9 +82,10 @@ public class Library {
 
 
 
-        public static void enterurchoice()
+        public static int enterurchoice()
         {
             Scanner scan = new Scanner(System.in);
             choice = scan.nextInt();
+            return choice;
         }
     }
