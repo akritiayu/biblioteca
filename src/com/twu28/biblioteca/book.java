@@ -32,7 +32,7 @@ public class Book {
         {
             System.out.print("100"+(i+1)+"\t\t\t"+book_name[i]+"\t\t\t"+author[i]+"\n");
         }
-        return true;
+        return ch==2;
 
     }
 
@@ -50,10 +50,6 @@ public class Book {
             System.out.println("You are not logged in. Login to reserve a book");
             Library.display_welcome_menu();
         }
-        //System.out.println("Enter 1 to login to reserve a book");
-        //System.out.println("Enter 2 to go back to Previous Menu");
-
-        //System.out.println("Enter the Book id of ur choice");
     }
 
     public static void reserve_a_book_or_go_to_previousmenu(int choice)
@@ -68,13 +64,10 @@ public class Book {
         else  if (choice==2)
             Library.display_welcome_menu();
         else
-
         {
             System.out.println("Enter Correct Input");
             display_choice_if_login();
         }
-
-
     }
 
     public static void selectbook(int choice)

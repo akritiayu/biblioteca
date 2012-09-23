@@ -1,5 +1,7 @@
 package com.twu28.biblioteca;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 ////import static com.twu28.biblioteca.Book.displaybook;
@@ -21,14 +23,24 @@ import org.junit.Test;
  * Time: 1:07 AM
  * To change this template use File | Settings | File Templates.
  */
-public class libraryTest {
+public class BookTest {
 
+    @Before
+    public void intialise()
+    {
+      Login.user_id_input="111-1115";
+    }
+
+    @After
+    public void deintialise()
+    {
+        Login.user_id_input=null;
+    }
     @Test
     public void when_user_enter1_displaylogin()
     {
         int choice=1;
-        boolean expected=true;
-        Assert.assertEquals(expected, Login.check_validity_of_id_and_password(choice));
+        Assert.assertTrue(Login.check_validity_of_id_and_password(choice));
     }
 
     @Test

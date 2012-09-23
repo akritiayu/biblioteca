@@ -11,9 +11,9 @@ package com.twu28.biblioteca;
 public class Movie {
 
     public static String[] movie_name=new String[] {"Sholay","3 Idiots","Gajini","Agent Vinod","Agneepath","Cocktail","Barfi","Houseful 2","Kahaani","Avengers","","","","",""};
-    public static String[] movie_release_year=new String[]{"","","","","","","","","","","","","","",""};
-    public static String[] movie_director=new String[] {"","","","","","","","","","","","","","",""};
-    public static String[] movie_rating=new String[] {"","","","","","","","","","","","","","",""};
+    public static String[] movie_release_year=new String[]{"1973","2000","1902","AAA","Aa","Asas","wsfd","de","443","213","214","24325","3214","23","`12"};
+    public static String[] movie_director=new String[] {"AA","BB","CC","DD","EE","FF","GG","HH","II","JJ","KK","LL","MM","NN","OO"};
+    public static String[] movie_rating=new String[] {"********","*****","*******","*******","**","****","****","N/A","****","***","***","***","*******","*","N/A"};
 
     public static String movie_menu_display(int choice)
     {

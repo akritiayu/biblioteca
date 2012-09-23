@@ -48,12 +48,8 @@ public class Login {
       }
         if (flag_indicator_of_userlogin==0)
            System.out.println("User Name Or Password Is Incorrect");
-         if (choice==1)
-         {
-         return true;
-         }
-         else
-             return false;
+         return choice==1;
+
      }
 
     public static void logout()
